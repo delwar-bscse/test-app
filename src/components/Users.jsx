@@ -40,7 +40,7 @@ const Users = () => {
                     <td className='border-b border-slate-300 px-2'>
                       {friends.map((friend)=>(
                         <ul key={friend.id} className='flex'>
-                          <li>{friend.id}. </li>
+                          <li>{friend.id+1}. </li>
                           <li className='ps-3'>{friend.name}</li>
                         </ul>
                       ))}
