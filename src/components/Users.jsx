@@ -12,7 +12,7 @@ const Users = () => {
       <div className='overflow-x-auto'>
         <table className="table-auto w-[1300px] border-collapse border-slate-500">
           <thead>
-            <tr className='bg-gray-500 text-gray-100'>
+            <tr className='bg-gray-700 text-gray-100'>
               <th className='border-b border-slate-400 p-2'>ID</th>
               <th className='border-b border-slate-400 p-2'>Name</th>
               <th className='border-b border-slate-400 p-2'>Age</th>
@@ -28,7 +28,7 @@ const Users = () => {
               {
                 users.map((user)=>{
                   const {id, age,name,gender,company,email,phone,address,friends}=user;
-                  return <tr key={id} className='bg-gray-400 text-white'>
+                  return <tr key={id} className='bg-gray-600 text-white'>
                     <td className='border-b border-slate-300 px-2'>...{id.slice(20)}</td>
                     <td className='border-b border-slate-300 px-2'>{name}</td>
                     <td className='border-b border-slate-300 text-center  px-2'>{age}</td>
