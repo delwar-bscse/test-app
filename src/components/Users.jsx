@@ -1,8 +1,14 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllUsers } from '../services/actions/userAction';
 
 const Users = () => {
   const {users} = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    getAllUsers(dispatch);
+  },[]);
 
   return (
     <div className='max-w-[1200px] my-6 mx-auto flex flex-col justify-center'>
@@ -26,10 +32,10 @@ const Users = () => {
           </thead>
           <tbody>
               {
-                users.map((user)=>{
-                  const {id, age,name,gender,company,email,phone,address,friends}=user;
-                  return <tr key={id} className='bg-gray-600 text-white'>
-                    <td className='border-b border-slate-300 px-2'>...{id.slice(20)}</td>
+                users?.map((user)=>{
+                  const {_id, age,name,gender,company,email,phone,address,friends}=user;
+                  return <tr key={_id} className='bg-gray-600 text-white'>
+                    <td className='border-b border-slate-300 px-2'>...{_id?.slice(20)}</td>
                     <td className='border-b border-slate-300 px-2'>{name}</td>
                     <td className='border-b border-slate-300 text-center  px-2'>{age}</td>
                     <td className='border-b border-slate-300 px-2'>{gender}</td>

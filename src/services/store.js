@@ -1,21 +1,34 @@
 import { createStore } from "redux";
-import datas from '../assets/data.json'
 
 
 const initialState = {
   isLoading : false,
-  users : datas,
+  users : [],
   error : null
 };
 
 const usersReducer = (state=initialState, action) =>{
-  switch (action.type) {
-    
-    // All actions goes here
-    
-    default:
-      return state;
-  }
+  switch(action.type){
+      case "GET_USERS_REQUEST":
+          return {
+              ...state,
+              isLoading : true
+          };
+      case "GET_USERS_SUCCESS":
+          return {
+              ...state,
+              isLoading : false,
+              users : action.payload
+          };
+      case "GET_USERS_FAILED":
+          return {
+              ...state,
+              isLoading : false,
+              error : action.payload
+          };
+      default:
+          return state;
+  };
 };
 
 
